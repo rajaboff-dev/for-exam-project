@@ -1,0 +1,692 @@
+@import './utils/_mixins';
+@import './utils/_variables';
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Pt Sans", sans-serif;
+}
+.title,
+th {
+  font-family: "Exo 2", sans-serif;
+  color: #363738;
+}
+p {
+  color: #6b6b6c;
+}
+.container {
+  padding: 10px 100px;
+  max-height: 1000px;
+}
+body {
+  @include flex(column, center, center);
+  main {
+    max-width: 1600px;
+    width: 100%;
+    @include flex(column, center, start, 200px);
+    #home {
+      @include flex(row, space-between, center);
+      width: 100%;
+      height: 100vh;
+      .home-info {
+        @include flex(column, center, start, 30px);
+        h1 {
+          font-size: 50px;
+        }
+        a {
+          position: relative;
+          text-decoration: none;
+          color: #000;
+          font-weight: 600;
+          &::before {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #ffce50;
+            transition: 0.2s all;
+          }
+          &:hover::before {
+            bottom: -2px;
+          }
+        }
+      }
+    }
+    #about {
+      @include flex(row, center, center);
+      width: 100%;
+      background: #fff;
+      .about-info {
+        @include grid(repeat(5, auto), auto, 70px);
+        place-items: center;
+        width: 100%;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding: 30px 50px;
+        border-radius: 20px;
+        hr {
+          width: 1px;
+          height: 100%;
+          background: #d7d7dd;
+        }
+        & > div {
+          @include flex(column, center, start, 15px);
+          padding: 0px 15px;
+          & > div:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            background: #e9e9ec;
+            border-radius: 50%;
+            @include flex(row, center, center);
+          }
+        }
+      }
+    }
+    #our-profitable {
+      width: 100%;
+      margin-top: 100px;
+      @include flex(column, center, center, 20px);
+      .our-profitable-header {
+        @include flex(row, center, center);
+        width: 100%;
+        height: 450px;
+        position: relative;
+        & > div {
+          @include flex(row, start, center);
+          width: 60%;
+          height: 100%;
+          background: $main-color;
+          clip-path: polygon(0 0, 62% 0, 100% 100%, 0% 100%);
+          position: absolute;
+          left: 0;
+          padding: 20px 100px;
+          h1 {
+            font-size: 3rem;
+            color: #fff;
+          }
+        }
+        img {
+          height: 100%;
+          width: 100%;
+          z-index: -1;
+          object-fit: cover;
+          filter: brightness(0.7);
+        }
+      }
+      .our-profitable-main {
+        width: 100%;
+        @include grid(repeat(2, 46%), auto auto, 100px);
+        place-content: center;
+        padding: 50px 0px;
+        & > div {
+          @include flex(row, center, center, 20px);
+          & > div:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            padding: 0px 3px;
+            background: #e9e9ec;
+            border-radius: 50%;
+            @include flex(row, center, center);
+          }
+          & > div:nth-child(2) {
+            @include flex(column, center, start, 10px);
+            width: calc(100% - 200px);
+            h2 {
+              color: #363738;
+            }
+          }
+        }
+      }
+    }
+    #completed-works {
+      width: 100%;
+      margin-top: 100px;
+      @include flex(column, center, start, 30px);
+      .completed-works-header {
+        @include flex(column, center, start, 20px);
+        h1 {
+          font-size: 3rem;
+        }
+      }
+      .completed-works-main {
+        @include flex(row, center, center, 60px);
+        width: 100%;
+        .completed-works-card {
+          @include flex(column, start, center, 10px);
+          box-shadow: $box-shadow;
+          width: calc(100% / 3);
+          border-radius: 10px;
+          img {
+            width: 100%;
+            object-fit: cover;
+          }
+          .completed-works-card-main {
+            width: 100%;
+            padding: 0px 50px 25px 20px;
+            @include flex(column, center, start, 10px);
+            .cost {
+              position: relative;
+              cursor: pointer;
+              &::before {
+                content: "";
+                position: absolute;
+                bottom: -5px;
+                width: 100%;
+                height: 3px;
+                background: #ffce50;
+                transition: 0.2s all;
+              }
+              &:hover::before {
+                bottom: -2px;
+              }
+            }
+          }
+        }
+      }
+    }
+    #attracted-clients {
+      width: 100%;
+      margin-top: 100px;
+      .attracted-clients-container {
+        width: 100%;
+        @include flex(row, space-between, start, 80px);
+        background: $main-color;
+        padding: 100px;
+        .attracted-clients-title {
+          h1 {
+            font-size: 3rem;
+            color: #fff;
+          }
+        }
+        .attracted-clients-main {
+          background: #fff;
+          padding: 30px;
+          border-radius: 10px;
+          @include flex(column, center, center, 20px);
+          .our-info {
+            @include flex(row, space-between, center);
+            width: 100%;
+            p {
+              font-size: 14px;
+            }
+          }
+          hr {
+            width: 100%;
+          }
+          table {
+            width: 100%;
+            border-collapse: collapse;
+            th,
+            td {
+              padding: 10px;
+              border: 1px solid #e9e9ec;
+            }
+            th {
+              background: $main-color;
+              padding: 10px;
+              color: #fff;
+            }
+            td {
+              a {
+                font-size: 13px;
+                text-decoration: none;
+                color: #363738;
+              }
+              svg {
+                width: 15px;
+                fill: #ffce50;
+              }
+            }
+          }
+        }
+      }
+    }
+    #delivery {
+      width: 100%;
+      margin-top: 100px;
+      @include flex(column, center, start, 30px);
+      & > h1 {
+        font-size: 3rem;
+      }
+      .delivery-main {
+        width: 100%;
+        @include flex(column, center, start, 20px);
+        .delivery-card {
+          width: 100%;
+          @include flex(row, space-between, center, 40px);
+          box-shadow: $box-shadow;
+          border-radius: 10px;
+          padding: 30px 120px;
+          & > div {
+            @include flex(column, center, start, 20px);
+            hr {
+              width: 150px;
+              border: 1px solid #ffce50;
+            }
+          }
+        }
+      }
+    }
+
+    #partners {
+      width: 100%;
+      margin-top: 100px;
+      @include flex(column, center, start, 30px);
+      & > h1 {
+        font-size: 3rem;
+      }
+      .partners-main {
+        width: 100%;
+        @include grid(repeat(4, auto), repeat(2, auto), 30px);
+        place-items: center;
+        .partners-card {
+          @include flex(column, center, center, 10px);
+          img {
+            width: 100px;
+          }
+        }
+      }
+    }
+
+    #workers {
+      width: 100%;
+      @include flex(column, center, start, 30px);
+      margin-top: 100px;
+      & > h1 {
+        font-size: 3rem;
+      }
+      .workers-main {
+        width: 100%;
+        @include grid(repeat(2, 48%), repeat(3, auto), 40px);
+        .workers-card {
+          width: 100%;
+          @include flex(row, start, center, 30px);
+          padding: 20px 0px 20px 100px;
+          box-shadow: $box-shadow;
+          border-radius: 10px;
+          background: linear-gradient(to right, $main-color 10%, #fff 10%);
+          & > div {
+            @include flex(column, center, start, 10px);
+            hr {
+              width: 100px;
+              border: 1px solid #ffce50;
+            }
+            .workers-sm-links {
+              @include flex(row, center, center, 10px);
+              margin-top: 10px;
+              i {
+                cursor: pointer;
+                font-size: 30px;
+                color: #bfbfc7;
+              }
+            }
+          }
+        }
+      }
+    }
+    #contact {
+      width: 100%;
+      margin-top: 100px;
+      @include flex(column, center, start, 50px);
+      & > h1 {
+        font-size: 3rem;
+      }
+      .contact-main {
+        width: 100%;
+        @include flex(row, space-between, start);
+        & > * {
+          width: 50%;
+          @include flex(column, center, start, 25px);
+        }
+        & > ul {
+          list-style: none;
+          gap: 60px;
+          li {
+            @include flex(row, start, center, 10px);
+            i {
+              font-size: 25px;
+              color: $main-color;
+            }
+          }
+        }
+        .our-contact-info {
+          background: #e9e9ec;
+          padding: 40px;
+          div {
+            width: 100%;
+            @include flex(row, star, center);
+            p {
+              width: 50%;
+            }
+            h1 {
+              font-size: 1rem;
+              width: 100%;
+            }
+          }
+          hr {
+            width: 100%;
+            opacity: 50%;
+          }
+        }
+      }
+    }
+    #our-video {
+      width: 100%;
+      margin-top: 100px;
+      @include flex(column, center, center);
+      video {
+        width: 100%;
+      }
+    }
+  }
+  footer {
+    width: 100%;
+    height: 50vh;
+    margin-top: 100px;
+    background: $main-color;
+    padding: 50px 100px;
+    max-width: 1600px;
+    max-height: 400px;
+    @include flex(column, space-between, center);
+    .footer-main {
+      width: 100%;
+      @include flex(row, space-between, start, 20px);
+      h1,
+      h3,
+      p,
+      li,
+      a {
+        color: #fff;
+      }
+      ul {
+        list-style: none;
+        @include flex(column, start, start, 20px);
+        a {
+          text-decoration: none;
+          text-transform: capitalize;
+        }
+        li {
+          @include flex(row, start, center, 10px);
+          div {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: transparent;
+            border: 1px solid #fff;
+            @include flex(row, center, center);
+            transition: 0.3s all;
+            &:hover {
+              background: #fff;
+              color: $main-color;
+            }
+          }
+          button {
+            padding: 10px 30px;
+            background: #cea640;
+            border: 1px solid transparent;
+            font-size: 1.1rem;
+            color: #fff;
+            transition: 0.3s all;
+            &:hover {
+              background: transparent;
+              border: 1px solid #fff;
+              color: #fff;
+            }
+            & > i{
+              margin-left: 10px;
+            }
+          }
+        }
+      }
+    }
+    & > div:nth-child(2) {
+      width: 100%;
+      height: 50px;
+      @include flex(row, center, center);
+      h4 {
+        font-size: 1rem;
+        color: #fff;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  body {
+    .container {
+      padding: 10px 50px;
+    }
+    main {
+      #home {
+        height: auto;
+        @include flex(column, center, center, 50px);
+        padding: 500px 50px;
+        .home-info {
+          @include flex(column, center, center, 40px);
+          text-align: center;
+        }
+        img {
+          width: 100%;
+        }
+      }
+      #about {
+        .about-info {
+          margin-top: 100px;
+          @include grid(repeat(1, auto), repeat(3, auto), 30px);
+          box-shadow: none;
+          width: 100%;
+          padding: 0px;
+          & > div {
+            @include flex(row, center, center, 20px);
+            box-shadow: $box-shadow;
+            border-radius: 10px;
+            padding: 30px;
+            width: 100%;
+            hr {
+              display: none;
+            }
+            & > div::nth-child(2) {
+              @include flex(column, center, center, 50px);
+            }
+          }
+        }
+      }
+      #our-profitable {
+        .our-profitable-main {
+          @include grid(repeat(1, 100%), auto, 50px);
+        }
+      }
+      #completed-works {
+        margin-top: 300px;
+        .completed-works-header {
+          h1 {
+            font-size: 2rem;
+          }
+        }
+        .completed-works-main {
+          @include flex(column, center, center, 30px);
+          .completed-works-card {
+            width: 100%;
+            img {
+              width: 100%;
+              height: 400px;
+            }
+            .completed-works-card-main {
+              @include flex(column, center, start, 20px);
+            }
+          }
+        }
+      }
+      #attracted-clients {
+        .attracted-clients-container {
+          margin-top: 200px;
+          padding: 30px;
+          @include flex(column, center, start, 30px);
+          .attracted-clients-title {
+            h1 {
+              font-size: 2rem;
+            }
+          }
+        }
+      }
+      #delivery {
+        .delivery-main {
+          .delivery-card {
+            @include flex(column, center, center, 30px);
+            img {
+              display: none;
+            }
+          }
+        }
+      }
+      #partners {
+        .partners-main {
+          @include grid(repeat(2, 50%), auto, 50px);
+        }
+      }
+      #workers {
+        .workers-main {
+          .workers-card {
+            @include flex(column, center, center, 10px);
+            padding: 20px 0px;
+          }
+        }
+      }
+      #contact {
+        .contact-main {
+          @include flex(column, center, start, 30px);
+          & > * {
+            width: 100%;
+          }
+        }
+      }
+    }
+    footer {
+      padding: 10px 20px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    .container {
+      padding: 10px 20px;
+      max-height: 3000px;
+    }
+    main {
+      @include flex(column, center, center, 100px);
+      #home {
+        height: auto;
+        @include flex(column, center, center, 50px);
+        padding: 100px 20px;
+        .home-info {
+          @include flex(column, center, start, 40px);
+          text-align: start;
+        }
+        img {
+          width: 100%;
+        }
+      }
+      #about {
+        .about-info {
+          @include grid(repeat(1, auto), repeat(3, auto), 20px);
+          box-shadow: $box-shadow;
+          padding: 10px;
+          height: auto;
+          hr {
+            display: none;
+          }
+          & > div {
+            box-shadow: none;
+            padding: 0px;
+            width: 100%;
+            @include flex(column, center, start, 20px);
+          }
+        }
+      }
+      #our-profitable {
+        height: auto;
+        .our-profitable-header {
+          img {
+            display: none;
+          }
+          div {
+            background: transparent;
+            clip-path: none;
+            padding: 0px;
+            width: 100%;
+            h1 {
+              color: #000;
+            }
+          }
+        }
+        .our-profitable-main {
+          @include grid(repeat(1, 100%), auto, 50px);
+        }
+      }
+      #attracted-clients {
+        .attracted-clients-main {
+          overflow: scroll;
+          width: 100%;
+        }
+      }
+      #delivery {
+        .delivery-main {
+          .delivery-card {
+            @include flex(column, center, center, 30px);
+            padding: 20px;
+          }
+        }
+      }
+      #partners {
+        & > h1 {
+          font-size: 20px;
+        }
+        .partners-main {
+          @include grid(repeat(1, 100%), auto, 50px);
+        }
+      }
+      #workers {
+        .workers-main {
+          @include grid(repeat(1, 100%), auto, 50px);
+        }
+      }
+      #contact {
+        .contact-main > .our-contact-info{
+          padding: 20px;
+        }
+      }
+    }
+    footer {
+      padding: 10px 20px;
+      max-height: 2000px;
+      height: auto;
+      width: 100%;
+      .footer-main {
+        flex-wrap: wrap;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1200px) {
+  .container {
+    padding: 20px;
+  }
+  body {
+    main {
+      #about {
+        .about-info {
+          @include grid(repeat(5, auto), auto, 20px);
+        }
+      }
+      #attracted-clients {
+        .attracted-clients-container {
+          @include flex(column, center, center, 20px);
+        }
+      }
+    }
+  }
+}

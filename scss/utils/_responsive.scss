@@ -1,0 +1,238 @@
+@media (max-width: 1024px) {
+    body {
+      .container {
+        padding: 10px 50px;
+      }
+      main {
+        #home {
+          height: auto;
+          @include flex(column, center, center, 50px);
+          padding: 500px 50px;
+          .home-info {
+            @include flex(column, center, center, 40px);
+            text-align: center;
+          }
+          img {
+            width: 100%;
+          }
+        }
+        #about {
+          .about-info {
+            margin-top: 100px;
+            @include grid(repeat(1, auto), repeat(3, auto), 30px);
+            box-shadow: none;
+            width: 100%;
+            padding: 0px;
+            & > div {
+              @include flex(row, center, center, 20px);
+              box-shadow: $box-shadow;
+              border-radius: 10px;
+              padding: 30px;
+              width: 100%;
+              hr {
+                display: none;
+              }
+              & > div::nth-child(2) {
+                @include flex(column, center, center, 50px);
+              }
+            }
+          }
+        }
+        #our-profitable {
+          .our-profitable-main {
+            @include grid(repeat(1, 100%), auto, 50px);
+          }
+        }
+        #completed-works {
+          margin-top: 300px;
+          .completed-works-header {
+            h1 {
+              font-size: 2rem;
+            }
+          }
+          .completed-works-main {
+            @include flex(column, center, center, 30px);
+            .completed-works-card {
+              width: 100%;
+              img {
+                width: 100%;
+                height: 400px;
+              }
+              .completed-works-card-main {
+                @include flex(column, center, start, 20px);
+              }
+            }
+          }
+        }
+        #attracted-clients {
+          .attracted-clients-container {
+            margin-top: 200px;
+            padding: 30px;
+            @include flex(column, center, start, 30px);
+            .attracted-clients-title {
+              h1 {
+                font-size: 2rem;
+              }
+            }
+          }
+        }
+        #delivery {
+          .delivery-main {
+            .delivery-card {
+              @include flex(column, center, center, 30px);
+              img {
+                display: none;
+              }
+            }
+          }
+        }
+        #partners {
+          .partners-main {
+            @include grid(repeat(2, 50%), auto, 50px);
+          }
+        }
+        #workers {
+          .workers-main {
+            .workers-card {
+              @include flex(column, center, center, 10px);
+              padding: 20px 0px;
+            }
+          }
+        }
+        #contact {
+          .contact-main {
+            @include flex(column, center, start, 30px);
+            & > * {
+              width: 100%;
+            }
+          }
+        }
+      }
+      footer {
+        padding: 10px 20px;
+      }
+    }
+  }
+  
+  @media (max-width: 768px) {
+    body {
+      .container {
+        padding: 10px 20px;
+        max-height: 3000px;
+      }
+      main {
+        @include flex(column, center, center, 100px);
+        #home {
+          height: auto;
+          @include flex(column, center, center, 50px);
+          padding: 100px 20px;
+          .home-info {
+            @include flex(column, center, start, 40px);
+            text-align: start;
+          }
+          img {
+            width: 100%;
+          }
+        }
+        #about {
+          .about-info {
+            @include grid(repeat(1, auto), repeat(3, auto), 20px);
+            box-shadow: $box-shadow;
+            padding: 10px;
+            height: auto;
+            hr {
+              display: none;
+            }
+            & > div {
+              box-shadow: none;
+              padding: 0px;
+              width: 100%;
+              @include flex(column, center, start, 20px);
+            }
+          }
+        }
+        #our-profitable {
+          height: auto;
+          .our-profitable-header {
+            img {
+              display: none;
+            }
+            div {
+              background: transparent;
+              clip-path: none;
+              padding: 0px;
+              width: 100%;
+              h1 {
+                color: #000;
+              }
+            }
+          }
+          .our-profitable-main {
+            @include grid(repeat(1, 100%), auto, 50px);
+          }
+        }
+        #attracted-clients {
+          .attracted-clients-main {
+            overflow: scroll;
+            width: 100%;
+          }
+        }
+        #delivery {
+          .delivery-main {
+            .delivery-card {
+              @include flex(column, center, center, 30px);
+              padding: 20px;
+            }
+          }
+        }
+        #partners {
+          & > h1 {
+            font-size: 20px;
+          }
+          .partners-main {
+            @include grid(repeat(1, 100%), auto, 50px);
+          }
+        }
+        #workers {
+          .workers-main {
+            @include grid(repeat(1, 100%), auto, 50px);
+          }
+        }
+        #contact {
+          .contact-main > .our-contact-info{
+            padding: 20px;
+          }
+        }
+      }
+      footer {
+        padding: 10px 20px;
+        max-height: 2000px;
+        height: auto;
+        width: 100%;
+        .footer-main {
+          flex-wrap: wrap;
+        }
+      }
+    }
+  }
+  
+  @media (min-width: 1024px) and (max-width: 1200px) {
+    .container {
+      padding: 20px;
+    }
+    body {
+      main {
+        #about {
+          .about-info {
+            @include grid(repeat(5, auto), auto, 20px);
+          }
+        }
+        #attracted-clients {
+          .attracted-clients-container {
+            @include flex(column, center, center, 20px);
+          }
+        }
+      }
+    }
+  }
+  
